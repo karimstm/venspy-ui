@@ -3,6 +3,12 @@ body {
   font-size: 20px;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .main-header
 {
   background-color: #fff;
@@ -16,4 +22,15 @@ body {
 .main-header .logo {
   height: 80px;
   width: auto;
+}
+
+/* Styling ant Breadcrumb */
+.non-ant-style {
+  margin-top: 90px;
+}
+
+/* Styling content in the home page */
+
+.spy-shadow {
+  box-shadow: 0 1px 15px rgba(0,0,0,.04), 0 1px 6px rgba(0,0,0,.04);
 }

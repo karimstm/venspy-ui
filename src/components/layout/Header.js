@@ -69,8 +69,7 @@ class Header extends Component {
                             <li className="nav-item mx-3">
                                 <Dropdown overlay={menu} trigger={['click']}>
                                     <a className="ant-dropdown-link" href="/">
-                                        <Avatar src="http://gull.ui-lib.com/purple/assets/images/faces/1.jpg"
-                                            s />
+                                        <Avatar src="http://gull.ui-lib.com/purple/assets/images/faces/1.jpg"/>
                                     </a>
                                 </Dropdown>
                             </li>
