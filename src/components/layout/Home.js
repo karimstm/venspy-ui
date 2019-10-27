@@ -5,8 +5,9 @@ import Header from './Header';
 import NewProject from '../Projects/NewProject';
 import { Switch, Route } from 'react-router-dom';
 import Siderbar from './Siderbar';
-import { new_project, project_list } from '../../Route';
+import { new_project, project_list, project_models } from '../../Route';
 import ProjectList from '../Projects/ProjectList';
+import Models from '../Models/Models';
 
 const { Content } = Layout
 
@@ -30,6 +31,7 @@ class Home extends Component {
                             <Switch>
                                 <Route exact path={new_project} component={NewProject} />
                                 <Route exact path={project_list} component={ProjectList} />
+                                <Route exact path={project_models} component={Models} />
                             </Switch>
                         </Content>
                     </Layout>
@@ -38,5 +40,7 @@ class Home extends Component {
         );
     }
 }
+
+
 
 export default Home;

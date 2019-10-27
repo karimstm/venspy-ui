@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col } from 'antd';
+import { Card, Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
 
 class ProjectCard extends Component {
     render() {
-        const { title, discription, bordered, className } = this.props;
+        const { title, discription, bordered, className, run, modification_date, id } = this.props;
         return (
             <Card
                 title={title}
@@ -14,18 +15,18 @@ class ProjectCard extends Component {
                 <p>{`${discription.substring(0, 50)}...`}</p>
                 <Row gutter={16}>
                     <Col span={18} className="text-left">
-                        <small className="text-muted">Last Modified: Oct 05, 2019</small>
+                        <small className="text-muted">Modif Date: {modification_date}</small>
                     </Col>
                     <Col span={6} className="text-right">
-                        <small className="text-muted">3 run</small>
+                        <small className="text-muted">{run} Run</small>
                     </Col>
                 </Row >
                 <div>
-                    <Button 
-                    style={{ backgroundColor: '#7cb305', borderColor: '#7cb305'}}
-                    className="mt-3 float-right"  
-                    type="primary"
-                    >Details</Button>
+                    <Link 
+                    style={{ backgroundColor: '#7cb305', borderColor: '#7cb305', borderRadius: 0}}
+                    className="btn btn-primary py-1 mt-3 float-right"  
+                    to={`/projects/${id}/models`}
+                    >Models</Link>
                 </div>
             </Card>
         );

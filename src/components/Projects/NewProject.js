@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import Crumb from '../Breadcrumb/Crumb';
 import { Input, Icon, Tooltip, Button } from 'antd';
+import { connect } from 'react-redux';
+import { create_project } from '../../actions';
+import { project_list } from '../../Route';
+import QmAlert from '../Shared/Alert/Alert/QmAlert';
 
-const items = [<a href="/">Projects</a>,
-<a href="/">New Projects</a>
+const items = [
+    <a href="/">Projects</a>,
+    <a href="/">New Projects</a>
 ]
 
 const { TextArea } = Input
@@ -24,13 +29,41 @@ class NewProject extends Component {
         this.setState({ description: value })
     }
 
+    onSubmit = async (e) => {
+        e.preventDefault()
+        const { name, description } = this.state;
+        if (!(name || description))
+            return ;
+        const response = await this.props.create_project(this.state)
+        if (response !== undefined) {
+            this.props.history.push(project_list);
+            this.setState({ name: '', description: '' })
+        }
+    }
+
+    showAlert = () => {
+        const { project } = this.props;
+        console.log(project)
+        if (project.errors)
+            return (
+                <div className="mb-2">
+                    <QmAlert
+                        message={project.errors}
+                    />
+                </div>
+            );
+        return null;
+    }
+
     render() {
         const { name, description } = this.state;
+        
         return (
             <div>
+                { this.showAlert() }
                 <Crumb items={items} />
-                <form className="mt-4" onSubmit={(e) => console.log(e)}>
-                    <div class="form-group">
+                <form className="mt-4" onSubmit={(e) => this.onSubmit(e)}  >
+                    <div className="form-group">
                         <label htmlFor="projectName">Project Name</label>
                         <Input
                             onChange={this.onNameChange}
@@ -44,7 +77,7 @@ class NewProject extends Component {
                                 </Tooltip>
                             }
                         />
-                        <small class="form-text text-muted">The project name will be know to every single person you're sharing it with</small>
+                        <small className="form-text text-muted">The project name will be know to every single person you're sharing it with</small>
                     </div>
                     <div className="form-group">
                         <label htmlFor="projectDescription">Description</label>
@@ -59,7 +92,9 @@ class NewProject extends Component {
                     </div>
 
                     <div className="form-group float-right">
-                        <Button type="primary">Create Project</Button>
+                        <Button type="primary" htmlType="submit" className="login-form-button">
+                            Create Project
+                    </Button>
                     </div>
                 </form>
             </div>
@@ -67,4 +102,10 @@ class NewProject extends Component {
     }
 }
 
-export default NewProject;
+const mapStateToProps = (state) => {
+    return {
+        project: state.project
+    }
+}
+
+export default connect(mapStateToProps, { create_project })(NewProject);

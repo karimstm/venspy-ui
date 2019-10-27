@@ -1,0 +1,22 @@
+.ant-list-item-meta {
+    display: flex;
+    flex: 1 1;
+    align-items: flex-start;
+    font-size: 0;
+}
+
+.listContentItem {
+    display: inline-block;
+      margin-left: 40px;
+      vertical-align: middle;
+}
+
+.listContentItem span {
+    line-height: 20px;
+}
+
+.listContentItem p {
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 22px;
+}
