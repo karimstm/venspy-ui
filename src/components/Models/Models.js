@@ -2,21 +2,33 @@ import React, { Component } from 'react';
 import { Card, List, Button, Avatar } from 'antd';
 import './models.css';
 import ListContent from './ListContent';
+import ModalContent from '../Shared/ModalContent';
+import ModelForm from './ModelForm';
 
 
 const list = [
     { 
         logo: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png',
         href: '/',
-        title: 'Aliexpress',
-        subDescription: '那是一种内在的东西， 他们到达不了，也无法触及的'
+        title: 'PMP',
+        subDescription: 'THIS SOME KING OF DESCRIPTION RELATED TO PMP MODEL'
     }
     ]
 
 class Models extends Component {
+
+    state = {
+        visible: false
+    }
+
+    showModal = () => {
+        this.setState({ visible: true })
+    }
+    
     render() {
         return (
-            <Card
+            <div>
+                <Card
                 style={{ marginTop: 24 }}
                 bordered={false}
                 title="Models"
@@ -56,6 +68,14 @@ class Models extends Component {
                     )}
                 />
             </Card>
+            <ModalContent
+                title="Upload a model"
+                onCancel={() => this.setState({ visible: false })}
+                component={ModelForm}
+                visible={this.state.visible}
+                />
+            </div>
+
         );
     }
 }

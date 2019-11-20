@@ -8,15 +8,12 @@ class ListContent extends Component {
         return (
             <div className="text-left">
                 <div className="listContentItem">
-                    <span>Owner</span>
+                    <span>OWNER</span>
                     <p>MOUTIK</p>
                 </div>
                 <div className="listContentItem">
-                    <span>开始时间</span>
+                    <span>CREATION DATE</span>
                     <p>{moment(moment.utc().valueOf()).format('YYYY-MM-DD HH:mm')}</p>
-                </div>
-                <div className="listContentItem">
-                    <Progress percent={20} status='normal' strokeWidth={6} style={{ width: 180 }} />
                 </div>
             </div>
         );
