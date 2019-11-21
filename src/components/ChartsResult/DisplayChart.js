@@ -79,7 +79,7 @@ export default function DisplayChart(props) {
         document.msExitFullscreen();
       }
     } else {
-      const element = $("#fullsc").get(0);
+      const element = $("#" + props.id).get(0);
       if (element.requestFullscreen) {
         element.requestFullscreen();
         // $("#fullsc").toggleClass("panel-fullscreen");
@@ -123,7 +123,7 @@ export default function DisplayChart(props) {
     ]
   };
   return (
-    <div className="cardchart card-1" id="fullsc" style={{ padding: "2%" }}>
+    <div className="cardchart card-1" id={props.id} style={{ padding: "2%" }}>
       <Icon
         type="fullscreen"
         onClick={handleClick}
