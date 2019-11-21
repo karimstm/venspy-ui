@@ -2,12 +2,14 @@ import {
     CREATE_FAILURE,
     CREATE_SUCCESS,
     PROJECTS_FAILED,
-    PROJECTS_SUCCESS
+    PROJECTS_SUCCESS,
+    RUN_SUCCESS,
+    RUN_FAILD
  } from '../actions/types';
 
 
 const INITIAL_STATE = {
-    project: {},
+    project: [],
     errors: ''
 };
 
@@ -16,6 +18,10 @@ export const projectReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case CREATE_SUCCESS:
             return {...state, project: action.payload, errors: '' }
+        case RUN_FAILD:
+            return {...state, errors: action.payload};
+        case RUN_SUCCESS:
+            return state;
         case CREATE_FAILURE:
             return {...state, errors: action.payload, project: {} }
         default:

@@ -25,7 +25,7 @@ class ProjectCard extends Component {
                     <Link 
                     style={{ backgroundColor: '#7cb305', borderColor: '#7cb305', borderRadius: 0}}
                     className="btn btn-primary py-1 mt-3 float-right"  
-                    to={`/projects/${id}/models`}
+                    to={{ pathname: `/projects/${id}/models`, projectId: `${id}`}}
                     >Models</Link>
                 </div>
             </Card>
