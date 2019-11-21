@@ -1,5 +1,5 @@
 // api config
-export const DEFAULT_URL = "http://venpy.pagekite.me/";
+export const DEFAULT_URL = "http://127.0.0.1:8000/";
 
 // Create Project constants
 export const CREATE_SUCCESS = "CREATE_SUCCESS";

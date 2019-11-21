@@ -60,6 +60,7 @@ class Models extends Component {
         const response = await this.props.fetch_models(this.props.match.params.id)
         if (response.type === MODELS_FETCH_SUCCESS)
         {
+            console.log(this.props.models)
             const res = this.props.models.map((item) =>  {
                 return { logo: this.getLogo(item.file_extension), href: '/', title: item.name, date: item.dateCreation }
             });

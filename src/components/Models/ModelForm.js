@@ -13,6 +13,7 @@ class ModelForm extends Component {
     state = {
         fileList: [],
         uploading: false,
+        disabled: false
     }
 
     //Upload the file
@@ -22,6 +23,7 @@ class ModelForm extends Component {
             successNotifiaction("Upload success")
         else if (response.type === MODEL_INSERT_FAILURE)
             openNotification("Failed to Upload file")
+        this.setState({ disabled: false })
     }
 
     handleSubmit = e => {
@@ -32,7 +34,8 @@ class ModelForm extends Component {
                 formData.append('file', values.file.fileList[0].originFileObj)
                 formData.append('typefile', values.typefile)
                 formData.append('project', this.props.projectId)
-                this.uploadfile(formData);
+                this.setState({ disabled: true },
+                    () => this.uploadfile(formData))
             }
         });
     };
@@ -90,7 +93,9 @@ class ModelForm extends Component {
                             <Button onClick={this.props.onCancel}>
                                 Close
                             </Button>
-                            <Button type="primary" htmlType="submit" className="login-form-button">
+                            <Button
+                                disabled={this.state.disabled}
+                                type="primary" htmlType="submit" className="login-form-button">
                                 Upload
                             </Button>
                         </div>
