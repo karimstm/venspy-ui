@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Progress } from 'antd';
 import moment from 'moment';
 import './models.css';
 
 class ListContent extends Component {
     render() {
+        const { items } = this.props;
         return (
             <div className="text-left">
                 <div className="listContentItem">
@@ -13,7 +13,7 @@ class ListContent extends Component {
                 </div>
                 <div className="listContentItem">
                     <span>CREATION DATE</span>
-                    <p>{moment(moment.utc().valueOf()).format('YYYY-MM-DD HH:mm')}</p>
+                    <p>{moment(items.date.valueOf()).format('YYYY-MM-DD HH:mm')}</p>
                 </div>
             </div>
         );

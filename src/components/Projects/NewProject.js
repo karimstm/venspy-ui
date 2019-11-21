@@ -43,7 +43,6 @@ class NewProject extends Component {
 
     showAlert = () => {
         const { project } = this.props;
-        console.log(project)
         if (project.errors)
             return (
                 <div className="mb-2">

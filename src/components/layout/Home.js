@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import "antd/dist/antd.css";
 import Header from "./Header";
 import NewProject from "../Projects/NewProject";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Siderbar from "./Siderbar";
 import {
   new_project,
@@ -38,6 +38,7 @@ class Home extends Component {
               }}
             >
               <Switch>
+                 <Route exact path="/" render={() => <Redirect to={project_list} />} />
                 <Route exact path={new_project} component={NewProject} />
                 <Route exact path={project_list} component={ProjectList} />
                 <Route exact path={project_models} component={Models} />
