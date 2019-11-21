@@ -44,21 +44,21 @@ require("highcharts/modules/boost")(Highcharts);
 // });
 
 export default function DisplayChart(props) {
-  const [data, setData] = useState([]);
-  const [isloaded, setIsloaded] = useState(false);
+  // const [data, setData] = useState([]);
+  // const [isloaded, setIsloaded] = useState(false);
 
-  useEffect(() => {
-    // console.log("sd");
-    axios
-      .get(`/simulations/1/?id=7`)
-      .then(res => {
-        setData(res.data);
-        setIsloaded(true);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // console.log("sd");
+  //   axios
+  //     .get(`/simulations/1/?id=7`)
+  //     .then(res => {
+  //       setData(res.data);
+  //       setIsloaded(true);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   function handleClick(e) {
     e.preventDefault();
@@ -93,50 +93,47 @@ export default function DisplayChart(props) {
     }
   }
 
-  if (!isloaded) return <div>Loading</div>;
-  else {
-    const test = data[props.name];
-    const dates = [];
-    const values = [];
-    Object.keys(test).map((e, v) => dates.push(parseInt(e)));
-    Object.keys(test).map((e, v) => values.push(test[e]));
-    // console.log(dates);
-    // console.log(values);
-    const options = {
-      title: {
-        text: props.name
-      },
-      xAxis: {
-        categories: dates
-      },
-      chart: {
-        type: "line",
-        zoomType: "xy"
-      },
-      rangeSelector: {
-        inputEnabled: false
-      },
-      colors: [props.color],
-      series: [
-        {
-          data: values,
-          colors: "#ED561B"
-        }
-      ]
-    };
-    return (
-      <div className="cardchart card-1" id="fullsc" style={{ padding: "2%" }}>
-        <Icon
-          type="fullscreen"
-          onClick={handleClick}
-          style={{ fontSize: "20px" }}
-        />
-        <HighchartsReact
-          highcharts={Highcharts}
-          constructorType={"stockChart"}
-          options={options}
-        />
-      </div>
-    );
-  }
+  const test = props.data;
+  const dates = [];
+  const values = [];
+  Object.keys(test).map((e, v) => dates.push(parseInt(e)));
+  Object.keys(test).map((e, v) => values.push(test[e]));
+  // console.log(dates);
+  // console.log(values);
+  const options = {
+    title: {
+      text: props.name
+    },
+    xAxis: {
+      categories: dates
+    },
+    chart: {
+      type: "line",
+      zoomType: "xy"
+    },
+    rangeSelector: {
+      inputEnabled: false
+    },
+    colors: [props.color],
+    series: [
+      {
+        data: values,
+        colors: "#ED561B"
+      }
+    ]
+  };
+  return (
+    <div className="cardchart card-1" id="fullsc" style={{ padding: "2%" }}>
+      <Icon
+        type="fullscreen"
+        onClick={handleClick}
+        style={{ fontSize: "20px" }}
+      />
+      <HighchartsReact
+        highcharts={Highcharts}
+        constructorType={"stockChart"}
+        options={options}
+      />
+    </div>
+  );
 }
