@@ -130,6 +130,7 @@ export default function DisplayChart(props) {
     ]
   };
   return (
+    // className="cardchart card-1"
     <div className="cardchart card-1" id={props.id} style={{ padding: "2%" }}>
       <Icon
         type="fullscreen"
