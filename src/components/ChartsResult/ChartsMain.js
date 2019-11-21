@@ -40,9 +40,9 @@ export default function ChartsMain(props) {
     );
   else {
     return (
-      <div>
+      <div style={{ marginLeft: "-2%" }}>
         <Row gutter={50}>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={24} xl={12} xxl={8}>
             <DisplayChart
               name="Production ACS"
               color="red"
@@ -50,7 +50,7 @@ export default function ChartsMain(props) {
               id="1"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={8}>
             <DisplayChart
               name="Préparation à la production ACP29 1"
               color="red"
@@ -58,7 +58,7 @@ export default function ChartsMain(props) {
               id="2"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={6} xl={12} xxl={8}>
             <DisplayChart
               name="Production ACP 54"
               color="red"
@@ -66,7 +66,7 @@ export default function ChartsMain(props) {
               id="3"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={8} xl={12} xxl={8}>
             <DisplayChart
               name="Stock ACP54 Cl"
               color="blue"
@@ -74,7 +74,7 @@ export default function ChartsMain(props) {
               id="4"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={8} xl={12} xxl={8}>
             <DisplayChart
               name="Consommation soufre liquide"
               color="blue"
@@ -82,7 +82,7 @@ export default function ChartsMain(props) {
               id="5"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={8} xl={12} xxl={8}>
             <DisplayChart
               name="ACP54 CL Chargé"
               color=""
@@ -91,7 +91,7 @@ export default function ChartsMain(props) {
               id="6"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={8} xl={12} xxl={8}>
             <DisplayChart
               name="Consomation ACS"
               color="#FF9655"
@@ -99,7 +99,7 @@ export default function ChartsMain(props) {
               id="7"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={8} xl={12} xxl={8}>
             <DisplayChart
               name="Consommation BP"
               color="#FF9655"
@@ -107,7 +107,7 @@ export default function ChartsMain(props) {
               id="8"
             />
           </Col>
-          <Col xxl={8}>
+          <Col xs={24} sm={24} md={24} lg={8} xl={24} xxl={8}>
             <DisplayChart
               name="Consommation ACP29"
               color="#FF9655"

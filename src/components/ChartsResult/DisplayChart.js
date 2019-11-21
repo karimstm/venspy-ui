@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../services/axios-default";
-// import Highcharts from "highcharts";
-import Highcharts from "highcharts/highstock";
+import Highcharts from "highcharts";
+// import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import "./chartscss.css";
 import $ from "jquery";
@@ -98,7 +98,7 @@ export default function DisplayChart(props) {
   const values = [];
   Object.keys(test).map((e, v) => dates.push(parseInt(e)));
   Object.keys(test).map((e, v) => values.push(test[e]));
-  // console.log(dates);
+  console.log(dates);
   // console.log(values);
   const options = {
     title: {
@@ -109,12 +109,19 @@ export default function DisplayChart(props) {
     },
     chart: {
       type: "line",
-      zoomType: "xy"
+      zoomType: "x"
     },
     rangeSelector: {
       inputEnabled: false
     },
     colors: [props.color],
+    plotOptions: {
+      line: {
+        marker: {
+          enabled: false
+        }
+      }
+    },
     series: [
       {
         data: values,
@@ -131,7 +138,7 @@ export default function DisplayChart(props) {
       />
       <HighchartsReact
         highcharts={Highcharts}
-        constructorType={"stockChart"}
+        // constructorType={"stockChart"}
         options={options}
       />
     </div>
