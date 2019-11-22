@@ -52,7 +52,7 @@ export default function ResultsCard(props) {
       content: props.item.description
         ? props.item.description
         : "No Description",
-      width: "4=0%"
+      width: "40%"
     });
   };
   return (
