@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "../../services/axios-default";
+import React from "react";
+// import axios from "../../services/axios-default";
 import Highcharts from "highcharts";
 // import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";

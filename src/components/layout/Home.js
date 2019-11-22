@@ -10,8 +10,7 @@ import {
   project_list,
   project_models,
   project_results,
-  project_resultcharts,
-  charts
+  project_resultcharts
 } from "../../Route";
 import ChartsMain from "../ChartsResult/ChartsMain";
 import ProjectList from "../Projects/ProjectList";
@@ -38,7 +37,11 @@ class Home extends Component {
               }}
             >
               <Switch>
-                 <Route exact path="/" render={() => <Redirect to={project_list} />} />
+                <Route
+                  exact
+                  path="/"
+                  render={() => <Redirect to={project_list} />}
+                />
                 <Route exact path={new_project} component={NewProject} />
                 <Route exact path={project_list} component={ProjectList} />
                 <Route exact path={project_models} component={Models} />

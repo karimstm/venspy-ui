@@ -1,14 +1,15 @@
 .ResultCard {
   background: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.12),
-    0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.09);
   width: 200px;
   margin: 10px;
   margin-bottom: 30px;
+  position: relative;
 }
 .ResultCardRow {
   padding: 20px 10px 0 10px;
   font-size: 15px;
+  width: 100%;
 }
 .ResultCardIcon {
   font-size: 16px;
@@ -24,6 +25,40 @@
 .Container {
   width: 80%;
   margin: auto;
+}
+
+.icon {
+  float: right;
+  color: rgb(214, 176, 7);
+  margin: -3px 0px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+}
+.icon:hover {
+  background: rgb(224, 185, 11);
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.iconabs {
+  position: absolute;
+  left: -31px;
+  top: 16px;
+  border-radius: 6px 0 0 6px;
+  background: #fff;
+  box-shadow: -1px 3px 3px -1px rgba(0, 0, 0, 0.12),
+    -1px 3px 3px -1px rgba(0, 0, 0, 0.1);
+  color: #1d8ffd;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.iconabs:hover {
+  background: #1d8ffd;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
 }
 
 @media only screen and (max-width: 800px) {
