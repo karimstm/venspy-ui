@@ -3,14 +3,10 @@ import { withRouter } from "react-router-dom";
 import { Form, Icon, Input, Button, Spin } from "antd";
 import "./LoginForm.css";
 import axios from "../../services/axios-default";
-import { useSelector, useDispatch } from "react-redux";
 import { addToken } from "../../auth";
-import { login, LOGIN_PATH } from "../../actions";
-import { transform } from "@babel/core";
+import { LOGIN_PATH } from "../../actions";
 
 const LoginForm = props => {
-	const isLogged = useSelector(state => state.isLogged);
-	const dispatch = useDispatch();
 	const [error, setError] = useState(false);
 
 	const handleSubmit = e => {
