@@ -55,9 +55,8 @@ class NewProject extends Component {
         {this.showAlert()}
         <Crumb items={items} />
         <form
-          className="mt-4"
           onSubmit={e => this.onSubmit(e)}
-          className={classes.newproject}
+          className={classes.newproject + " mt-4"}
         >
           <div className="form-group">
             <label htmlFor="projectName">Project Name</label>

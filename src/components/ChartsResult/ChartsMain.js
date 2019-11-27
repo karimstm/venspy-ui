@@ -7,7 +7,6 @@ export default function ChartsMain(props) {
   const [isloaded, setIsloaded] = useState(false);
 
   useEffect(() => {
-    // console.log("sd");
     axios
       .get(
         `/simulations/${props.match.params.id}/?id=${props.match.params.resid}`
@@ -19,7 +18,7 @@ export default function ChartsMain(props) {
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [props.match.params.id, props.match.params.resid]);
 
   if (!isloaded)
     return (
@@ -32,7 +31,7 @@ export default function ChartsMain(props) {
         indicator={
           <Icon
             type="loading"
-            style={{ fontSize: 24, fontSize: "40px", margin: "30px 0" }}
+            style={{ fontSize: "40px", margin: "30px 0" }}
             spin
           />
         }
@@ -85,7 +84,6 @@ export default function ChartsMain(props) {
           <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={8}>
             <DisplayChart
               name="ACP54 CL Chargé"
-              color=""
               color="blue"
               data={data["ACP54 CL Chargé"]}
               id="6"

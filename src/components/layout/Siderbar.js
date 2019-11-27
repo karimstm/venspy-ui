@@ -6,10 +6,17 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 class Siderbar extends Component {
+  state = {
+    opened: false
+  };
+  changeIcon = () => {
+    this.setState({ opened: !this.state.opened });
+  };
   render() {
     return (
       <Sider width={170} style={{ background: "#fff", marginTop: "80px" }}>
         <Menu
+          onOpenChange={this.changeIcon}
           mode="inline"
           style={{
             height: "100vh",
@@ -20,7 +27,7 @@ class Siderbar extends Component {
             key="sub1"
             title={
               <span>
-                <Icon type="folder-open" />
+                <Icon type={this.state.opened ? "folder-open" : "folder"} />
                 <span>Projects</span>
               </span>
             }

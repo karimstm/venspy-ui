@@ -1,0 +1,15 @@
+.Play {
+  float: right;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 3px;
+  color: #087afc;
+  transition: all 0.2s ease-in-out;
+}
+
+.Play:hover {
+  background: #087afc;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}

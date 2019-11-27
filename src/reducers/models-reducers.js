@@ -2,7 +2,9 @@ import {
     MODELS_FETCH_FAILURE,
     MODELS_FETCH_SUCCESS,
     MODEL_INSERT_SUCCESS,
-    MODEL_INSERT_FAILURE
+    MODEL_INSERT_FAILURE,
+    MODEL_DELETE_SUCCESS,
+    MODEL_DELETE_FAILURE
  } from '../actions/types';
 
  const INITIAL_STATE = {
@@ -21,6 +23,10 @@ export const ModelsReducers = (state = INITIAL_STATE, actions) => {
         case MODEL_INSERT_SUCCESS:
             return {...state, models: [...state.models, actions.payload], error: '' }
         case MODEL_INSERT_FAILURE:
+            return state;
+        case MODEL_DELETE_SUCCESS:
+            return {...state, models: [...state.models, actions.payload], error: '' }
+        case MODEL_DELETE_FAILURE:
             return state;
         default:
             return state;

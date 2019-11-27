@@ -13,17 +13,14 @@ export default function Results(props) {
         .get(`simulations/${props.match.params.id}/`)
         .then(res => {
           setResults(res.data);
-          console.log(res.data.em);
         })
         .catch(e => {
           setError(true);
-          console.log("error");
         });
     }
-  }, []);
+  }, [props.match.params.id]);
   const { Title } = Typography;
   const responsive = {
-    xs: 24,
     xs: 24,
     sm: 12,
     lg: 8,
@@ -49,7 +46,7 @@ export default function Results(props) {
         indicator={
           <Icon
             type="loading"
-            style={{ fontSize: 24, fontSize: "40px", margin: "30px 0" }}
+            style={{ fontSize: "40px", margin: "30px 0" }}
             spin
           />
         }
