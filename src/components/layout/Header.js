@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Input, Icon, Avatar, Dropdown, Menu, Badge } from "antd";
+import { removeToken } from "../../auth";
 import "antd/dist/antd.css";
 
 import logo from "../../images/logo.png";
@@ -15,7 +16,10 @@ const menu = (
       <Icon type="setting" />
       Settings
     </Menu.Item>
-    <Menu.Item key="2">
+    <Menu.Item key="2" onClick={() => {
+		removeToken();
+		window.location = "/";
+	}}>
       <Icon type="logout" />
       Logout
     </Menu.Item>

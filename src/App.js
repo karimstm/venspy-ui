@@ -1,25 +1,37 @@
-import React, { Component } from 'react';
+import React, {useStatae, useEffect} from 'react';
 import './App.css';
 import Home from './components/layout/Home';
-import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { init } from './reducers';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { ProtectedRouter, login_path } from "./Route";
+import { Login } from "./components/Login/Login";
+import { useSelector, useDispatch } from "react-redux";
+import { isAuthenticated } from "./auth";
+import { login, reject } from "./actions"
 
 
-const store = init()
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Router>
-          <div className="App">
-            <Home />
-          </div>
-        </Router>
-      </Provider>
-    );
-  }
+const App = () => {
+
+	const isLogged = useSelector(state => state.isLogged);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (isAuthenticated()){
+			dispatch(login());
+		}
+		else {
+			dispatch(reject());
+		}
+	}, [isLogged]);
+
+	return (
+		<Router>
+			<div className="App">
+				<Route path={login_path} exact component={Login} />
+				<ProtectedRouter path="/" component={Home} />
+			</div>
+		</Router>
+	);
 }
 
 export default App;

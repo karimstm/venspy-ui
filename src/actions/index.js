@@ -10,10 +10,16 @@ import {
     MODEL_INSERT_FAILURE,
     MODEL_INSERT_SUCCESS,
     RUN_FAILD,
-    RUN_SUCCESS
+	RUN_SUCCESS,
+	DEFAULT_URL,
+	LOGIN_PATH
  } from './types';
 import axios from '../services/axios-default';
+import { login, logout, reject } from "./login-actions";
 
+//login actions
+export {login, logout, reject};
+export {LOGIN_PATH, DEFAULT_URL};
 
 // Create a new project
 export const create_project = data => async dispatch => {
