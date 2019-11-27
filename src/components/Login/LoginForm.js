@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import { Form, Icon, Input, Button } from "antd";
+import { Form, Icon, Input, Button, Spin } from "antd";
 import "./LoginForm.css";
 import axios from "../../services/axios-default";
 import { useSelector, useDispatch } from "react-redux";
 import { addToken } from "../../auth";
 import { login, LOGIN_PATH } from "../../actions";
+import { transform } from "@babel/core";
 
 const LoginForm = props => {
 	const isLogged = useSelector(state => state.isLogged);
@@ -16,10 +17,12 @@ const LoginForm = props => {
 		e.preventDefault();
 		props.form.validateFields((err, values) => {
 			if (!err) {
+				setError(null);
 				axios.post(`${LOGIN_PATH}`, values)
 					.then(res => {
 						//console.log(res);
 						addToken(res.data.access);
+						setError(false);
 						window.location = "/";
 					})
 					.catch(err => {
@@ -62,6 +65,7 @@ const LoginForm = props => {
 					Log in
         		</Button>
 			</Form.Item>
+			{error === null ? <Spin style={{ position: "absolute", width: "auto", height: "auto", top: "calc(50% - 50px)", left: "calc(50% - 50px)", transform: "translate(100%, 0)" }} size="large" /> : null}
 		</Form>
 	);
 };
