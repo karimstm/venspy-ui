@@ -3,13 +3,15 @@ import thunk from 'redux-thunk';
 import { projectReducer, fetchProjectsReducer } from './project-reducer';
 import { TypesReducer } from './types-reducers';
 import { ModelsReducers } from './models-reducers';
+import { loginReducer } from "./login-reducers";
 
 export const init = () => {
     const reducer = combineReducers({
         project: projectReducer,
         projects: fetchProjectsReducer,
         types: TypesReducer,
-        models: ModelsReducers
+		models: ModelsReducers,
+		isLogged: loginReducer
     });
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

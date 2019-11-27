@@ -1,6 +1,9 @@
 // api config
 export const DEFAULT_URL = "http://9ec161e9.ngrok.io/";
 
+//api endpints
+export const LOGIN_PATH = "api/auth/"
+
 // Create Project constants
 export const CREATE_SUCCESS = "CREATE_SUCCESS";
 export const CREATE_FAILURE = "CREATE_FAILURE";
