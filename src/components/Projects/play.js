@@ -18,7 +18,6 @@ import { withRouter } from "react-router-dom";
 import ws from "../../services/connect";
 
 const { TextArea } = Input;
-const { Dragger } = Upload;
 
 class Play extends Component {
   state = {

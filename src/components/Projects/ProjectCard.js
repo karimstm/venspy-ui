@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import classes from "./project.module.css";
 import Play from "./play";
 import graph from "../icons/graph";
-import ws from "../../services/connect";
 class ProjectCard extends Component {
   render() {
     const {

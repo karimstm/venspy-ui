@@ -6,8 +6,8 @@ import HighchartsReact from "highcharts-react-official";
 import "./chartscss.css";
 import $ from "jquery";
 import { Icon } from "antd";
-// require("highcharts/modules/exporting")(Highcharts);
-// require("highcharts/modules/data")(Highcharts);
+require("highcharts/modules/exporting")(Highcharts);
+require("highcharts/modules/data")(Highcharts);
 require("highcharts/modules/boost")(Highcharts);
 
 // $("#toggle_fullscreen").click(function() {
@@ -132,11 +132,13 @@ export default function DisplayChart(props) {
   return (
     // className="cardchart card-1"
     <div className="cardchart card-1" id={props.id} style={{ padding: "2%" }}>
-      <Icon
-        type="fullscreen"
-        onClick={handleClick}
-        style={{ fontSize: "20px" }}
-      />
+      <div className="handle">
+        <Icon
+          type="fullscreen"
+          onClick={handleClick}
+          style={{ fontSize: "20px" }}
+        />
+      </div>
       <HighchartsReact
         highcharts={Highcharts}
         // constructorType={"stockChart"}

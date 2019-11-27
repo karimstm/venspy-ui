@@ -62,7 +62,7 @@ class connect {
     };
   };
   check = () => {
-    if (!this.ws || this.ws.readyState == WebSocket.CLOSED) this.connect();
+    if (!this.ws || this.ws.readyState === WebSocket.CLOSED) this.connect();
   };
 }
 
