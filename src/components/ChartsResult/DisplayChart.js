@@ -6,9 +6,9 @@ import HighchartsReact from "highcharts-react-official";
 import "./chartscss.css";
 import $ from "jquery";
 import { Icon } from "antd";
-require("highcharts/modules/exporting")(Highcharts);
-require("highcharts/modules/data")(Highcharts);
-require("highcharts/modules/boost")(Highcharts);
+// require("highcharts/modules/exporting")(Highcharts);
+// require("highcharts/modules/data")(Highcharts);
+// require("highcharts/modules/boost")(Highcharts);
 
 // $("#toggle_fullscreen").click(function() {
 //   // if already full screen; exit
@@ -124,6 +124,7 @@ export default function DisplayChart(props) {
     },
     series: [
       {
+        name: "Time(Daily)",
         data: values,
         colors: "#ED561B"
       }
@@ -132,7 +133,7 @@ export default function DisplayChart(props) {
   return (
     // className="cardchart card-1"
     <div className="cardchart card-1" id={props.id} style={{ padding: "2%" }}>
-      <div className="handle">
+      <div className="handle" style={{ cursor: "pointer" }}>
         <Icon
           type="fullscreen"
           onClick={handleClick}
