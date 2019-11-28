@@ -6,7 +6,7 @@ import HighchartsReact from "highcharts-react-official";
 import "./chartscss.css";
 import $ from "jquery";
 import { Icon } from "antd";
-// require("highcharts/modules/exporting")(Highcharts);
+require("highcharts/modules/exporting")(Highcharts);
 // require("highcharts/modules/data")(Highcharts);
 // require("highcharts/modules/boost")(Highcharts);
 
@@ -96,6 +96,7 @@ export default function DisplayChart(props) {
   const test = props.data;
   const dates = [];
   const values = [];
+  console.log(test);
   Object.keys(test).map((e, v) => dates.push(parseInt(e)));
   Object.keys(test).map((e, v) => values.push(test[e]));
   console.log(dates);
