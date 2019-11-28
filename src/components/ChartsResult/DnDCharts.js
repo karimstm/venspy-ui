@@ -70,12 +70,14 @@ export class DnDCharts extends Component {
     else {
       return (
         <div>
-          <ResultsFilter handleClick={this.handleClick}
+          <ResultsFilter
+            handleClick={this.handleClick}
             project={this.props.match.params.id}
-            result={this.props.match.params.resid} />
+            result={this.props.match.params.resid}
+          />
           <br />
           <Row gutter={50}>
-            <div ref={this.handleRef} >
+            <div ref={this.handleRef}>
               {this.state.graph.map((elem, index) => (
                 <Col
                   xs={24}
