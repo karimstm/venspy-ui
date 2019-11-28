@@ -109,7 +109,8 @@ export default function DisplayChart(props) {
     },
     chart: {
       type: "line",
-      zoomType: "x"
+      zoomType: "x",
+      height: "75%"
     },
     rangeSelector: {
       inputEnabled: false
@@ -144,7 +145,7 @@ export default function DisplayChart(props) {
         highcharts={Highcharts}
         // constructorType={"stockChart"}
         options={options}
-      />
+      />390
     </div>
   );
 }

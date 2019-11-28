@@ -21,7 +21,7 @@ class connect {
     let that = this;
     var connectInterval;
     this.ws.onopen = () => {
-      this.notify("success", "You are Connected", "connect");
+      // this.notify("success", "You are Connected", "connect");
       that.timeout = 250;
       clearTimeout(connectInterval);
     };
@@ -36,14 +36,14 @@ class connect {
       );
     };
     this.ws.onclose = () => {
-      this.notify(
-        "warning",
-        `Your Are Disconnected. Reconnect will be attempted in ${Math.min(
-          10000 / 1000,
-          (that.timeout + that.timeout) / 1000
-        )} second.`,
-        "closed"
-      );
+      // this.notify(
+      //   "warning",
+      //   `Your Are Disconnected. Reconnect will be attempted in ${Math.min(
+      //     10000 / 1000,
+      //     (that.timeout + that.timeout) / 1000
+      //   )} second.`,
+      //   "closed"
+      // );
 
       that.timeout = that.timeout + that.timeout;
       connectInterval = setTimeout(this.check, Math.min(10000, that.timeout));

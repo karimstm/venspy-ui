@@ -69,6 +69,7 @@ class Play extends Component {
               })
             );
             this.setState({ isloading: false });
+            this.hideModal();
           }
         );
       }
