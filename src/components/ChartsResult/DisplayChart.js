@@ -110,7 +110,8 @@ export default function DisplayChart(props) {
     },
     chart: {
       type: "line",
-      zoomType: "x"
+      zoomType: "x",
+      height: "300px"
     },
     rangeSelector: {
       inputEnabled: false
