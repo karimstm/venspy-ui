@@ -11,16 +11,19 @@
     "jquery": "^3.4.1",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
+    "muuri": "^0.8.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-muuri": "^0.3.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "web-animations-js": "^2.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3030 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

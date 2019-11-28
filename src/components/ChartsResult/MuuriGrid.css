@@ -1,0 +1,31 @@
+/* .grid {
+  position: relative;
+} */
+
+.item {
+  display: flex;
+  position: absolute;
+  /* min-height: 100px; */
+  /* margin: 5px; */
+  z-index: 1;
+  /* background: #fff; */
+  /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3); */
+  /* color: #555; */
+}
+
+.item.muuri-item-dragging {
+  z-index: 3;
+}
+.item.muuri-item-releasing {
+  z-index: 2;
+}
+.item.muuri-item-hidden {
+  z-index: 0;
+}
+
+/* .item-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
