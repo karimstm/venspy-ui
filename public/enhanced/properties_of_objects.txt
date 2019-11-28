@@ -1,0 +1,5 @@
+Stock : shape=9, "Stock" in name, no "initial" in name
+Besoin : "Besoin" in name, shape=10
+Production : "Production" in name, shape=38
+Consommation : "Consommation" in name, shape=10
+Transfert: 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Input, Icon, Avatar, Dropdown, Menu, Badge } from "antd";
 import { removeToken } from "../../auth";
+import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
-
 import logo from "../../images/logo.png";
 const { Search } = Input;
 
@@ -16,10 +16,13 @@ const menu = (
       <Icon type="setting" />
       Settings
     </Menu.Item>
-    <Menu.Item key="2" onClick={() => {
-		removeToken();
-		window.location = "/";
-	}}>
+    <Menu.Item
+      key="2"
+      onClick={() => {
+        removeToken();
+        window.location = "/";
+      }}
+    >
       <Icon type="logout" />
       Logout
     </Menu.Item>
@@ -54,15 +57,15 @@ class Header extends Component {
             </li>
 
             <li className="nav-item active mx-2">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Home <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item mx-2">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/projects">
                 Projects
-              </a>
+              </Link>
             </li>
             <li className="nav-item mx-2 mt-1">
               <Search

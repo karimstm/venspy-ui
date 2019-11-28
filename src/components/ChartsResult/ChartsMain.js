@@ -24,7 +24,7 @@ export default function ChartsMain(props) {
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [props.match.params.id, props.match.params.resid]);
 
   if (!isloaded)
     return (
@@ -37,7 +37,7 @@ export default function ChartsMain(props) {
         indicator={
           <Icon
             type="loading"
-            style={{ fontSize: 24, fontSize: "40px", margin: "30px 0" }}
+            style={{ fontSize: "40px", margin: "30px 0" }}
             spin
           />
         }

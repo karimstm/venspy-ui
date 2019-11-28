@@ -1,8 +1,8 @@
 // api config
-export const DEFAULT_URL = "http://venpy.pagekite.me/";
+export const DEFAULT_URL = "http://3e98630f.ngrok.io/";
 
 //api endpints
-export const LOGIN_PATH = "api/auth/"
+export const LOGIN_PATH = "api/auth/";
 
 // Create Project constants
 export const CREATE_SUCCESS = "CREATE_SUCCESS";
@@ -22,6 +22,9 @@ export const TYPES_FETCH_SUCCESS = "TYPES_FETCH_SUCCESS";
 
 export const MODEL_INSERT_FAILURE = "MODEL_INSERT_FAILURE";
 export const MODEL_INSERT_SUCCESS = "MODEL_INSERT_SUCCESS";
+
+export const MODEL_DELETE_FAILURE = "MODEL_DELETE_FAILURE";
+export const MODEL_DELETE_SUCCESS = "MODEL_DELETE_SUCCESS";
 
 export const RUN_FAILD = "RUN_FAILD";
 export const RUN_SUCCESS = "RUN_SUCCESS";

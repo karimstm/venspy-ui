@@ -1,51 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./ResultsCard.module.css";
-import { Icon, Divider, Tag, Col, Modal, Alert } from "antd";
+import { Icon, Divider, Tag, Col, Modal } from "antd";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import OutputModal from "./OutputModal";
 
 export default function ResultsCard(props) {
-  const warning = () => {
-    let all = props.item.warning ? props.item.warning.split("\n") : [];
-    Modal.warning({
-      title: "Messages:",
-      content: all.map(item => {
-        if (item.length > 0) {
-          if (item.substr(0, 7).toUpperCase() === "WARNING".toUpperCase()) {
-            return (
-              <Alert
-                style={{ margin: "10px 0" }}
-                message={item}
-                type="warning"
-                showIcon
-              />
-            );
-          } else if (
-            item.substr(0, 5).toUpperCase() === "ERROR".toUpperCase()
-          ) {
-            return (
-              <Alert
-                style={{ margin: "10px 0" }}
-                message={item}
-                type="error"
-                showIcon
-              />
-            );
-          } else {
-            return (
-              <Alert
-                style={{ margin: "10px 0" }}
-                message={item}
-                type="info"
-                showIcon
-              />
-            );
-          }
-        } else return "";
-      }),
-      width: "50%"
-    });
-  };
+  const [isOutputModalVisible, setIsOutputModalVisible] = useState(false);
+
   const Description = () => {
     Modal.info({
       title: "Description",
@@ -61,7 +23,7 @@ export default function ResultsCard(props) {
         <Icon type="user" className={classes.ResultCardIcon} />
         <Divider type="vertical" />
         <span>username</span>
-        <span onClick={() => warning()}>
+        <span onClick={() => setIsOutputModalVisible(true)}>
           {props.item.warning ? (
             <Icon type="warning" className={classes.icon} />
           ) : (
@@ -118,6 +80,11 @@ export default function ResultsCard(props) {
           </Link>
         </Col>
       </div>
+      <OutputModal
+        visible={isOutputModalVisible}
+        setVisible={setIsOutputModalVisible}
+        {...props}
+      />
     </div>
   );
 }

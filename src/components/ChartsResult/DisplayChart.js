@@ -154,6 +154,7 @@ export default function DisplayChart(props) {
         // constructorType={"stockChart"}
         options={options}
       />
+      390
     </div>
   );
 }

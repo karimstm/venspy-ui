@@ -12,7 +12,8 @@ import {
   project_results,
   project_resultcharts
 } from "../../Route";
-import ChartsMain from "../ChartsResult/ChartsMain";
+// import ChartsMain from "../ChartsResult/ChartsMain";
+import ChartsMain from "../ChartsResult/DnDCharts";
 import ProjectList from "../Projects/ProjectList";
 import Models from "../Models/Models";
 import Results from "../Results/Results";
