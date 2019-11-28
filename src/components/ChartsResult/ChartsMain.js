@@ -47,7 +47,10 @@ export default function ChartsMain(props) {
     return (
       <ChartsContext.Provider value={{ graphs, setGraphs }}>
         <div>
-          <ResultsFilter project={props.match.params.id} result={props.match.params.resid} />
+          <ResultsFilter
+            project={props.match.params.id}
+            result={props.match.params.resid}
+          />
           <br />
           <Row gutter={50}>
             {graphs.map(elem => (

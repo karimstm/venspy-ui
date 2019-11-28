@@ -106,7 +106,10 @@ export default function DisplayChart(props) {
       text: props.name
     },
     xAxis: {
-      categories: dates
+      categories: dates,
+      title: {
+        text: "Time(Daily)"
+      }
     },
     chart: {
       type: "line",
@@ -116,9 +119,13 @@ export default function DisplayChart(props) {
     rangeSelector: {
       inputEnabled: false
     },
+    legend: {
+      enabled: false
+    },
     colors: [props.color],
     plotOptions: {
       line: {
+        pointStart: 0,
         marker: {
           enabled: false
         }
