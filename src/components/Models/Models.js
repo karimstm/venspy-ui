@@ -15,7 +15,6 @@ import excel from "../../images/excel.png";
 import mdlLogo from "../../images/mdl.png";
 import vpmx from "../../images/vensim.svg";
 import unknown from "../../images/Unknown-Extension.png";
-import DescriptionForm from "./DescriptionForm";
 import Loading from "../Shared/Loading";
 
 // const list = [
@@ -95,10 +94,15 @@ class Models extends Component {
       this.fetchModels();
     }
   };
+  Download = file => {
+    alert(file);
+    let win = window.open(file, "_blank");
+    win.focus();
+  };
   render() {
     return (
       <div>
-        <button
+        {/* <button
           className="btn btn-info btn-sm float-right rounded-0 mr-4"
           onClick={() => {
             this.setState({
@@ -114,17 +118,16 @@ class Models extends Component {
           }}
         >
           Run Simulation
-        </button>
+        </button> */}
         <Card
           style={{ marginTop: 24, clear: "both" }}
           bordered={false}
-          title="Models"
           bodyStyle={{ padding: "0 32px 40px 32px" }}
           headStyle={{ border: 0 }}
         >
           <Button
             type="dashed"
-            style={{ width: "100%", marginBottom: 8 }}
+            style={{ width: "100%", marginBottom: 8, height: "40px" }}
             onClick={() => {
               this.setState({
                 title: "Upload a model",
@@ -155,6 +158,9 @@ class Models extends Component {
                   actions={[
                     <a key="delete" onClick={() => this.Delete(item.id)}>
                       Delete
+                    </a>,
+                    <a key="delete" onClick={() => this.Download(item.file)}>
+                      Download
                     </a>
                   ]}
                 >

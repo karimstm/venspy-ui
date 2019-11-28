@@ -54,27 +54,12 @@ class ProjectCard extends Component {
           </Link>
         </div>
         <div>
-          {/* <button
-            onClick={() => {
-              if (ws.ws.readyState == 1)
-                ws.ws.send(
-                  JSON.stringify({
-                    pk: "1",
-                    description: "test2",
-                    option: "generate"
-                  })
-                );
-            }}
-          >
-            {" "}
-            test
-          </button> */}
-          <Link
+          <a
             style={{
               borderRadius: 0,
               margin: "0 10px"
             }}
-            to="/graphs/1/"
+            href="/enhanced/index.html"
           >
             <Icon
               component={graph}
@@ -87,7 +72,7 @@ class ProjectCard extends Component {
                 fill: "#087afc"
               }}
             />
-          </Link>
+          </a>
           <Link
             style={{
               borderRadius: 0,

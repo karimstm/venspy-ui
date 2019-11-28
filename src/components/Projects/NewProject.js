@@ -30,8 +30,9 @@ class NewProject extends Component {
     const { name, description } = this.state;
     if (!(name || description)) return;
     const response = await this.props.create_project(this.state);
+    console.log(response);
     if (response !== undefined) {
-      this.props.history.push(project_list);
+      this.props.history.push(project_list + `/${response.payload.id}/models`);
       this.setState({ name: "", description: "" });
     }
   };

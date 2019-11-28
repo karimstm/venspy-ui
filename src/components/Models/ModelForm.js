@@ -11,7 +11,7 @@ import {
   openNotification
 } from "../Shared/NotificationMessages";
 import Loading from "../Shared/Loading";
-
+import { withRouter } from "react-router-dom";
 const { Option } = Select;
 
 class ModelForm extends Component {
@@ -37,9 +37,13 @@ class ModelForm extends Component {
       if (!err) {
         const formData = new FormData();
         formData.append("file", values.file.fileList[0].originFileObj);
-        formData.append("typefile", values.typefile);
+        formData.append("typefile", 3);
         formData.append("project", this.props.projectId);
-        this.setState({ disabled: true }, () => this.uploadfile(formData));
+        this.setState({ disabled: true }, () =>
+          this.uploadfile(formData).then(() => {
+            this.props.history.push("/");
+          })
+        );
       }
     });
   };
@@ -70,22 +74,23 @@ class ModelForm extends Component {
           <Loading />
         ) : (
           <Form onSubmit={this.handleSubmit}>
-            <Form.Item hasFeedback>
-              {getFieldDecorator("typefile", {
-                rules: [
-                  { required: true, message: "Please select a FILE TYPE!" }
-                ]
-              })(
-                <Select placeholder="Please select a FILE TYPE">
-                  {this.renderOption()}
-                </Select>
-              )}
-            </Form.Item>
-            <Form.Item label="Upload File">
+            <Form.Item label="Upload MDL File">
               {getFieldDecorator("file", {
                 rules: [{ required: true, message: "Please specify a file" }]
               })(
-                <Upload
+                // <Upload
+                //   beforeUpload={() => false}
+                //   name="logo"
+                //   multiple={false}
+                //   fileList={this.state.fileList}
+                //   customRequest={({ onSuccess }) => onSuccess("ok")}
+                //   onChange={e => this.setState({ fileList: e.fileList })}
+                // >
+                //   <Button>
+                //     <Icon type="upload" /> Click to upload
+                //   </Button>
+                // </Upload>
+                <Upload.Dragger
                   beforeUpload={() => false}
                   name="logo"
                   multiple={false}
@@ -93,10 +98,8 @@ class ModelForm extends Component {
                   customRequest={({ onSuccess }) => onSuccess("ok")}
                   onChange={e => this.setState({ fileList: e.fileList })}
                 >
-                  <Button>
-                    <Icon type="upload" /> Click to upload
-                  </Button>
-                </Upload>
+                  <Icon type="upload" />
+                </Upload.Dragger>
               )}
             </Form.Item>
             <Form.Item>
@@ -105,7 +108,7 @@ class ModelForm extends Component {
                 <Button
                   type="primary"
                   htmlType="submit"
-                  className="login-form-button"
+                  // className="login-form-button"
                 >
                   Upload
                 </Button>
@@ -126,6 +129,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchTypes, uploadModel })(
-  Form.create({ name: "horizontal_product" })(ModelForm)
+export default withRouter(
+  connect(mapStateToProps, { fetchTypes, uploadModel })(
+    Form.create({ name: "horizontal_product" })(ModelForm)
+  )
 );

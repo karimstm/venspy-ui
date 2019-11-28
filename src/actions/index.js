@@ -27,6 +27,7 @@ export { LOGIN_PATH, DEFAULT_URL };
 export const create_project = data => async dispatch => {
   const response = await axios
     .post("/project/", data)
+    // .then(res => console.log(res))
     .catch(() =>
       dispatch({ type: CREATE_FAILURE, payload: "Failed to create a project" })
     );

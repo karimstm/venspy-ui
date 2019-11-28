@@ -1,4 +1,4 @@
-import React, { useStatae, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Home from "./components/layout/Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -20,7 +20,7 @@ const App = () => {
     } else {
       dispatch(reject());
     }
-  }, [isLogged]);
+  }, [isLogged, dispatch]);
 
   return (
     <Router>

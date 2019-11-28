@@ -1,8 +1,8 @@
 // api config
-export const DEFAULT_URL = "http://9ec161e9.ngrok.io/";
+export const DEFAULT_URL = "http://venpy.pagekite.me/";
 
 //api endpints
-export const LOGIN_PATH = "api/auth/"
+export const LOGIN_PATH = "api/auth/";
 
 // Create Project constants
 export const CREATE_SUCCESS = "CREATE_SUCCESS";

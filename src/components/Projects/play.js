@@ -151,7 +151,7 @@ class Play extends Component {
                       <Button
                         type="primary"
                         htmlType="submit"
-                        className="login-form-button"
+                        // className="login-form-button"
                       >
                         Run
                       </Button>
