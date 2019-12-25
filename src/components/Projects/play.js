@@ -17,6 +17,7 @@ import Loading from "../Shared/Loading";
 import { withRouter } from "react-router-dom";
 import ws from "../../services/connect";
 
+const jwt = require("jsonwebtoken");
 const { TextArea } = Input;
 
 class Play extends Component {
@@ -61,11 +62,14 @@ class Play extends Component {
           //   this.props.history.push(`/projects/${projectId}/results`);
           // })
           {
+            let token = localStorage.getItem("access");
+            const decoded = jwt.decode(token);
             ws.ws.send(
               JSON.stringify({
                 pk: projectId,
                 description: values["description"],
-                option: "generate"
+                option: "generate",
+                iduser: decoded.user_id
               })
             );
             this.setState({ isloading: false });

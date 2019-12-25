@@ -1,4 +1,4 @@
-var leetDropDownStatus = {active: false, hovered: false, button: null};
+var leetDropDownStatus = {active: false, hovered: false, button: null, offset : 0, scrollAccu : 0.0};
 var leetDropDownButtons = [];
 var leetUiButtons = [];
 
@@ -109,10 +109,17 @@ function init_leet_ui()
     new leetUiButton(leetComponentImages['home'], ()=>{window.location.replace('http://localhost:3000');}, null, null, 0, 0, 50, 50);
 // creating the return button
     new leetUiButton(leetComponentImages['return'], ()=>{switchLeetView(-1);}, null, null, 50, 0, 50, 50);
+// creating the center button
+    new leetUiButton(leetComponentImages['center'], ()=>{centerScene();}, null, null, width - 50, 0, 50, 50);
     dropDownButton.draw = DropDownButtonDraw;
     leetDropDownStatus.button = dropDownButton;
     for (var i = 0; i < leetViewClasses.length; i++)
         leetDropDownButtons.push(new leetUiButton(leetViewClasses[i].name, DropDownElementClickHandler, DropDownElementHoverHandler, {classId: i}, width/2 - 110, 50 + 50*i, 240, 50, false));
+}
+
+function ui_mouseWheel(delta)
+{
+    return (dropDownMouseWheel(delta));
 }
 
 function ui_clicks()
@@ -120,7 +127,7 @@ function ui_clicks()
     let oldvalue = leetDropDownStatus.active;
     if (leetDropDownStatus.button.is_mouse_in())
         leetDropDownStatus.active = leetDropDownStatus.active ? false : true;
-    if (oldvalue == leetDropDownStatus.active)
+    if (oldvalue == leetDropDownStatus.active && !mouse_in_box(sliderBox()))
         leetDropDownStatus.active = false;
     for (var i = 0; i < leetUiButtons.length; i++)
     {

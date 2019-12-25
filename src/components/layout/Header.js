@@ -3,7 +3,7 @@ import { Input, Icon, Avatar, Dropdown, Menu, Badge } from "antd";
 import { removeToken } from "../../auth";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.jpg";
 const { Search } = Input;
 
 const menu = (

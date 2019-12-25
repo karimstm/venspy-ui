@@ -1,5 +1,5 @@
 // api config
-export const DEFAULT_URL = "http://3e98630f.ngrok.io/";
+export const DEFAULT_URL = "http://127.0.0.1:8000/";
 
 //api endpints
 export const LOGIN_PATH = "api/auth/";

@@ -48,8 +48,10 @@ let leetComponentTypeTable = [
     { type : "transfert", in_name : [['transfert']], shape : [34,] }
 ];
 
-// let leetComponentTypeTable = [
-// ]
+let leetComponentProductTable = [
+    {type : "soufre", in_name : [['soufre']]},
+    {type : "ACP", in_name : [[/ACP.*/]]}
+]
 
 function expression_in_list(or_names, name_parts)
 {
@@ -129,6 +131,8 @@ function process_conditions(element, conditions)
 
 function get_type_and_product(element)
 {
-    let result = process_conditions(element, leetComponentTypeTable);
-    element.iconType = result;
+    let type = process_conditions(element, leetComponentTypeTable);
+    let product = process_conditions(element, leetComponentProductTable);
+    element.iconType = type;
+    element.iconProduct = product;
 }

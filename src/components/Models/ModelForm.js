@@ -37,7 +37,7 @@ class ModelForm extends Component {
       if (!err) {
         const formData = new FormData();
         formData.append("file", values.file.fileList[0].originFileObj);
-        formData.append("typefile", 3);
+        formData.append("typefile", 1);
         formData.append("project", this.props.projectId);
         this.setState({ disabled: true }, () =>
           this.uploadfile(formData).then(() => {

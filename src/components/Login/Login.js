@@ -3,6 +3,7 @@ import "./Login.css";
 import LoginForm from "./LoginForm";
 import { isAuthenticated } from "../../auth";
 import { Redirect } from "react-router-dom";
+import logo from '../../images/logo.jpg'
 
 export class Login extends Component {
   render() {
@@ -20,7 +21,7 @@ export class Login extends Component {
           <div id="login-form-wrapper-div">
             <div id="login-form-sub-wrapper">
               <div id="login-form-img">
-                <img src={require("./venpy.png")} alt="" />
+                <img src={logo} alt="" />
               </div>
               <LoginForm />
             </div>

@@ -5,6 +5,7 @@ import axios from "../../services/axios-default";
 import DisplayChart from "./DisplayChart";
 import ResultsFilter from "./ResultsFilter";
 import "./MuuriGrid.css";
+import FiltersModal from '../ChartRsltModal/FiltersModal'
 
 export class DnDCharts extends Component {
   state = {
@@ -75,6 +76,7 @@ export class DnDCharts extends Component {
             project={this.props.match.params.id}
             result={this.props.match.params.resid}
           />
+          <FiltersModal />
           <br />
           <Row gutter={50}>
             <div ref={this.handleRef}>

@@ -10,13 +10,15 @@ import {
   project_list,
   project_models,
   project_results,
-  project_resultcharts
+  project_resultcharts,
+  charts
 } from "../../Route";
-// import ChartsMain from "../ChartsResult/ChartsMain";
-import ChartsMain from "../ChartsResult/DnDCharts";
+import ChartsMain from "../ChartsResult/ChartsMain";
+// import ChartsMain from "../ChartsResult/DnDCharts";
 import ProjectList from "../Projects/ProjectList";
 import Models from "../Models/Models";
 import Results from "../Results/Results";
+import ResultAllCharts from '../ChartsResult/ResultAllCharts'
 
 const { Content } = Layout;
 
@@ -47,6 +49,7 @@ class Home extends Component {
                 <Route exact path={project_list} component={ProjectList} />
                 <Route exact path={project_models} component={Models} />
                 <Route exact path={project_results} component={Results} />
+                <Route exact path={charts} component={ResultAllCharts} />
                 <Route
                   exact
                   path={project_resultcharts}

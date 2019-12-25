@@ -15,6 +15,11 @@ class leetView
         this.maxX = -10000;
         this.minY = 10000;
         this.maxY = -10000;
+        this.zoomSf = null;
+        this.zoomTx = null;
+        this.zoomTy = null;
+        this.zoomXoff = 0;
+        this.zoomYoff = 0;
     }
 
     push_object(new_child)

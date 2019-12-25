@@ -12,9 +12,17 @@ function get_color_or_default(value, def)
     return (value);
 }
 
+function preloadCallback()
+{
+    leetLoadedComponents++;
+    if (leetLoadedComponents >= Object.keys(leetComponentImages).length)
+        leetLoadedComponents = true;
+}
+
 function preloadComponentIcons()
 {
     var componentURLS = {
+        'logo' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/logo.png?token=AKNCIS634Z3MMRPCINE2LHC547ANW',
         'Graph' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/graph.png?token=AKNCIS5AUF6JUMU7Z4WXPY254ZZTQ',
         '48' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/cloud.png?token=AKNCIS6PGXAMUEOBQGYJ2MS54Z4B4',
         '2312' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/transfer.png?token=AKNCISYX2XVNLI5I5RL74IC54UJDQ',
@@ -31,19 +39,20 @@ function preloadComponentIcons()
         'sulfur' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/sulfur.png?token=AKNCIS7U6NUDXWE5BX66MLC54ZRIM',
         'factory' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/factory.png?token=AKNCIS2MPEBKWKWSG7IU7IC54Z24W',
         'pulpe' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/slime.png?token=AKNCIS6UPQQDTLWTHSBLO2S546CSO',
-        'logo' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/logo.png?token=AKNCIS634Z3MMRPCINE2LHC547ANW'
+        'center' : 'https://raw.githubusercontent.com/KernelOverseer/vensim_mdl_sketcher/master/visualizer/center.png?token=AKNCIS5GNJP5WNJSZYQPHDS55DBX2',
+       // 'skyTEST' : 'https://effigis.com/wp-content/uploads/2015/02/Airbus_Pleiades_50cm_8bit_RGB_Yogyakarta.jpg'
 }
     var result = {}
 
     Object.keys(componentURLS).forEach((key)=>{
-        result[key] = loadImage(componentURLS[key]);
+        result[key] = loadImage(componentURLS[key], preloadCallback);
     })
     return (result);
 }
 
 function mouse_in_box(element)
 {
-    if (mouseX > this.x && mouseY > this.y && mouseX < this.x + this.w && mouseY < this.y + this.h)
+    if (mouseX > element.x && mouseY > element.y && mouseX < element.x + element.w && mouseY < element.y + element.h)
         return (true);
     return (false);
 }
